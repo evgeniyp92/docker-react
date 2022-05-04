@@ -14,3 +14,9 @@ jobs:
           ${{secrets.DOCKER_PASSWORD}}
       - run: docker build -t evgeniyp92/docker-react -f dockerfile.dev .
       - run: docker run -e CI=true evgeniyp92/docker-react npm run test
+
+      - name: Generate final image
+        run: docker build -t evgeniyp92/docker-react:prod .
+
+      - name: Generate deployment package
+        run: zip -r deploy.zip . -x '*.git'
