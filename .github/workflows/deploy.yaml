@@ -13,4 +13,4 @@ jobs:
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p
           ${{secrets.DOCKER_PASSWORD}}
       - run: docker build -t evgeniyp92/docker-react .
-      - run: docker run -e CI=true evgeniyp92/docker-react npm test
+      - run: docker run -e CI=true evgeniyp92/docker-react npm run test
